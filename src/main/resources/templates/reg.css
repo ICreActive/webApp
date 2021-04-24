@@ -1,0 +1,104 @@
+form {
+    padding: 0;
+    margin: 0;
+    font: 14px Arial, sans-serif;
+}
+.fields {
+    border: 1px solid #ccc;
+    padding: 15px 0 30px 10px;
+}
+
+label {
+    display: inline-block;
+    margin: 10px;
+    width: 100px;
+}
+label:nth-child(3n) {
+    margin-bottom: 40px;
+}
+input {
+    width: 190px;
+}
+.numb {
+    position: relative;
+    top: -20px;
+    margin-left: 15px;
+}
+.name:invalid + span::after {
+    content: "\2716";
+    font-size: 12px;
+    color: red;
+    margin-left: 7px;
+}
+.name:valid + span::after {
+    content: "\2714";
+    font-size: 14px;
+    color: #2aeb2d;
+    margin-left: 7px;
+}
+.numb:focus + span::after {
+    content: "\2716   Неправильное число";
+    font-size: 14px;
+    color: red;
+    position: relative;
+    top: -20px;
+    margin-left: 7px;
+}
+.numb:valid + span::after {
+    content: "\2714";
+    font-size: 14px;
+    color: #2aeb2d;
+    margin-left: 7px;
+    position: relative;
+}
+p {
+    margin: -20px 0 0 10px;
+}
+.img {
+    background: url(http://htmlbook.ru/files/images/practical/24.png);
+    width: 80px;
+    height: 30px;
+    background-position: -20px 107px;
+}
+
+/* input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+margin: 0;
+}   убрать стрелочки вверх вниз в поле input — phone или number*/
+.send {
+    border: none;
+    border-radius: 5px;
+    background: lightgray;
+    margin-top: 5px;
+    line-height: 30px;
+}
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 3px 15px;
+    color: #fff;
+    background: linear-gradient(to right, #1fa221 10%, #23c626 50%, #1fa221);
+    font-size: 12px;
+    box-shadow: 0 0 -3px -3px #000;
+    position: relative;
+    margin-left: 121px;
+    cursor: pointer;
+}
+
+button::before {
+    content: '';
+    width: 138px;
+    height: 11px;
+    border-radius: 5px;
+    background: #fff;
+    position: absolute;
+    top: 0; left: 3px;
+    opacity: 30%;
+    display: none;
+}
+button:hover::before {
+    display: block;
+}

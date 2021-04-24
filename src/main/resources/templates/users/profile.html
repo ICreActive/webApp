@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+<body>
+<p th:text="${user.getName()}">VALUE</p>
+<p th:text="${user.getLogin()}">VALUE</p>
+<p th:text="${user.getId()}">VALUE</p>
+
+<!--<div th:each="element: ${users}" >-->
+<!--    <h4 th:text="${element.id}"> </h4>-->
+<!--  <h4 th:text="${element.login}"> </h4>-->
+<!--    <h6 th:text="${element.password}"></h6>-->
+<!--    <h6 th:text="${element.name}"></h6>-->
+
+</div>
+</body>
+</html>
