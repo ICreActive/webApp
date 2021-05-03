@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update user</title>
+</head>
+<body>
+    <h1>Редактирование пользователя</h1>
+        <form th:method="POST" th:object="${user}">
+    <input  th:value="${user.username}" name="name" type="text" placeholder="Имя"/>
+    <br/>
+     <input type="text" th:value="${user.password}" name="password" placeholder="Введите новый пароль" />
+    <br/>
+            <input type="text" th:value="${user.passwordConfirm}" name="passwordConfirm" placeholder="Подтвердите пароль" />
+            <br/>
+    <button type="submit">Update</button>
+        </form>
+    </div>
+
+</body>
+</html>

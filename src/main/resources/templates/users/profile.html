@@ -1,20 +1,34 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>User Profile</title>
 </head>
 <body>
-<p th:text="${user.getName()}">VALUE</p>
-<p th:text="${user.getLogin()}">VALUE</p>
-<p th:text="${user.getId()}">VALUE</p>
 
-<!--<div th:each="element: ${users}" >-->
-<!--    <h4 th:text="${element.id}"> </h4>-->
-<!--  <h4 th:text="${element.login}"> </h4>-->
-<!--    <h6 th:text="${element.password}"></h6>-->
-<!--    <h6 th:text="${element.name}"></h6>-->
+<table class="table">
+    <thead>
 
-</div>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Login</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <form method="GET" th:action="'/users/profile/'+ ${user.getId()} + '/edit'">
+        <th scope="row" th:text="${user.getId()}">VALUE</th>
+        <td th:text="${user.getUsername()}">VALUE</td>
+        <td th:text="${user.getLogin()}">VALUE</td>
+        <td><button type="submit" value="Edit" >  EDIT</button></td>
+        </form>
+    </tr>
+    </tbody>
+
+</table>
+
+
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/hotels/{id}(id=${hotel.getId()})}" th:object="${hotel}">
+<table class="table">
+    <tr>
+        <td >id</td>
+        <td >Title</td>
+    </tr>
+
+    <tbody>
+    <tr>
+        <td th:text="${hotel.getId}">VALUE</td>
+        <td th:text="${hotel.getTitle()}">VALUE</td>
+        <td th:text="${hotel.getDescription()}">VALUE</td>
+    </tr>
+    </tbody>
+</table>
+     <input type="submit" value="Booking"/>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our suggestions</title>
+</head>
+<body>
+HOTELS
+<table>
+    <tr>
+        <th>Our suggestions</th>
+    </tr>
+    <tr th:each="elem:${hotels}">
+        <br>
+        <th> <a th:href="@{/hotels/{id}(id=${elem.getId()})}" th:text="${elem.getTitle()}"> title </a>
+             <p th:text="${elem.getDescription()}"> description </p>
+        </th>
+    </tr>
+</table>
+
+<form>
+
+</form>
+
+</body>
+</html>

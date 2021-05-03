@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymleaf.org" lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+        <link href="/resources/css/reg.css" type="text/css" rel="stylesheet" />
     <meta charset="UTF-8">
     <title>New User</title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/users}" th:object="${user}">
-    <div>
+<form th:method="POST" th:object="${userNew}">
+
         <label for="name"> Enter name </label>
-        <input type="text" th:field="*{name}" id="name" required/>
+        <input type="text" th:field="*{username}" id="name" required/>
+        <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{username}">Error</div>
+
         <br/>
-        <label for="name"> Enter login </label>
+        <label for="LoginName"> Enter login </label>
         <input type="text" th:field="*{login}" id="loginName" required/>
-        <br/>
-        <label for="name"> Enter password </label>
-        <input type="text" th:field="*{password}" id="pass" required/>
+
         <br/>
 
+        <label for="pass"> Enter password </label>
+        <input type="text" th:field="*{password}" id="pass" required/>
+
+        <label for="passConfirm"> Confirm password </label>
+        <input type="text" th:field="*{passwordConfirm}" id="passConfirm" required/>
+        <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</div>
+        <br/>
         <input type="submit" value="Create user">
-    </div>
 </form>
 
-<!--<div th:each="element: ${users}" >-->
-<!--    <h4 th:text="${element.id}"> </h4>-->
-<!--  <h4 th:text="${element.login}"> </h4>-->
-<!--    <h6 th:text="${element.password}"></h6>-->
-<!--    <h6 th:text="${element.name}"></h6>-->
 
 </div>
 </body>

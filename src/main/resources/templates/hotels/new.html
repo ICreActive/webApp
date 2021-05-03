@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New hotel</title>
+</head>
+<body>
+
+  <!--/*@thymesVar id="hotel" type="com.shkubel.project.models.Hotel"*/-->
+  <form th:method="POST" th:action="@{/hotels/new}" th:object="${hotel}">
+      <label for="title"> Title </label>
+      <input id="title" required th:field="*{title}" type="text"/>
+      <br/>
+      <label for="description"> Description </label>
+      <input id="description" required th:field="*{description}" type="text"/>
+      <input type="submit" value="Create hotel">
+
+  </form>
+</body>
+</html>
