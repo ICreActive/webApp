@@ -10,20 +10,22 @@
 
         <label for="name"> Enter name </label>
         <input type="text" th:field="*{username}" id="name" required/>
-        <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{username}">Error</div>
+        <div style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error</div>
+        <div style="color: red" th:if="${usernameError}" th:text="${usernameError}">Error</div>
 
         <br/>
         <label for="LoginName"> Enter login </label>
         <input type="text" th:field="*{login}" id="loginName" required/>
-
         <br/>
 
         <label for="pass"> Enter password </label>
         <input type="text" th:field="*{password}" id="pass" required/>
+        <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</div>
 
         <label for="passConfirm"> Confirm password </label>
         <input type="text" th:field="*{passwordConfirm}" id="passConfirm" required/>
         <div style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</div>
+        <div style="color: red" th:if="${passwordError}" th:text="${passwordError}">Error</div>
         <br/>
         <input type="submit" value="Create user">
 </form>

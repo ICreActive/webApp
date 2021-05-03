@@ -41,20 +41,20 @@ public class UserController {
     }
 
     @PostMapping("/new")
-    public String create(@ModelAttribute("user") @Valid User user, BindingResult bindingResult, Model model) {
+    public String create(@ModelAttribute("userNew") @Valid User user, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             return "/users/new";
         }
-        userService.saveUser(user);
         if (!user.getPassword().equals(user.getPasswordConfirm())) {
             model.addAttribute("passwordError", "Пароли не совпадают");
             return "/users/new";
         }
-
         if (!userService.saveUser(user)) {
             model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
             return "/users/new";
         }
+        userService.saveUser(user);
+
         return "redirect:/home";
     }
 
@@ -72,7 +72,11 @@ public class UserController {
     }
 
     @PostMapping("/profile/{id}/edit")
-    public String userUpd(@PathVariable("id") long id, @ModelAttribute ("user") User user) {
+    public String userUpd(@ModelAttribute ("user") @Valid User user,
+                          BindingResult bindingResult, @PathVariable("id") long id) {
+        if (bindingResult.hasErrors()) {
+            return "users/edit";
+        }
         userService.updateUser(id, user);
         return "redirect:/users";
     }
