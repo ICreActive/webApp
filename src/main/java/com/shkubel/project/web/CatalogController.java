@@ -3,6 +3,7 @@ package com.shkubel.project.web;
 
 import com.shkubel.project.models.Hotel;
 import com.shkubel.project.repo.HotelRepository;
+import com.shkubel.project.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,8 @@ public class CatalogController {
 
     @Autowired
     HotelRepository hotelRepository;
+    @Autowired
+    BookingService bookingService;
 
     @GetMapping("/catalog")
     public String hotels (Model model) {
@@ -30,7 +33,7 @@ public class CatalogController {
     @PostMapping("/new")
     public String add (@ModelAttribute("hotel") Hotel hotel) {
         hotelRepository.save(hotel);
-        return "redirect:hotels/catalog";
+        return "redirect:/hotels/catalog";
     }
     @GetMapping("/{id}")
     public String show (@PathVariable("id") long id, Model model) {
@@ -38,12 +41,12 @@ public class CatalogController {
         return "hotels/id";
     }
     @PostMapping("/{id}")
-    public String booking (@PathVariable("id") long id, Model model) {
-        Hotel hotel = hotelRepository.findById(id).orElseThrow(IllegalStateException::new);
-        hotel.setBook(true);
-        hotelRepository.save(hotel);
-        return "redirect:/hotels/catalog";
+    public String booking (@PathVariable("id") long id, @ModelAttribute("hotel") Hotel hotel, Model model) {
+        if (bookingService.booking(id, hotel)) {
+            return "redirect:/hotels/catalog";
+        }
+        model.addAttribute("message", "this hotel is already booked");
+        return "/hotels/id";
     }
-
 
 }

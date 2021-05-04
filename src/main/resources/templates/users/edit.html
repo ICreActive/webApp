@@ -9,9 +9,9 @@
         <form th:method="POST" th:object="${user}">
     <input  th:value="${user.username}" name="name" type="text" placeholder="Имя"/>
     <br/>
-     <input type="text" th:value="${user.password}" name="password" placeholder="Введите новый пароль" />
+     <input type="text" name="password" placeholder="Введите новый пароль" />
     <br/>
-            <input type="text" th:value="${user.passwordConfirm}" name="passwordConfirm" placeholder="Подтвердите пароль" />
+            <input type="text" name="passwordConfirm" placeholder="Подтвердите пароль" />
             <br/>
     <button type="submit">Update</button>
         </form>

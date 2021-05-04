@@ -10,13 +10,7 @@ public class AuthorizationController {
 
     @GetMapping("/")
     public String home() {
-        return "static/home";
+        return "static/index";
     }
-
-    @GetMapping("/authorization")
-    public String authorization() {
-        return "authorization";
-    }
-
 
 }

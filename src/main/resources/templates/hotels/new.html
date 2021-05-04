@@ -7,7 +7,7 @@
 <body>
 
   <!--/*@thymesVar id="hotel" type="com.shkubel.project.models.Hotel"*/-->
-  <form th:method="POST" th:action="@{/hotels/new}" th:object="${hotel}">
+  <form th:method="POST" th:object="${hotel}">
       <label for="title"> Title </label>
       <input id="title" required th:field="*{title}" type="text"/>
       <br/>
